@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adoption Application Form</title>
+	<style>
+		body {
+			background-color: #f6f6f6;
+			font-family: Arial, sans-serif;
+		}
+		h1 {
+			text-align: center;
+			color: #333;
+			margin-top: 50px;
+            
+		}
+		form {
+			border-radius: 5px;
+			padding: 20px;
+			width: 50%;
+			margin: 0 auto;
+		}
+		input[type="text"], input[type="email"], select, textarea {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: none;
+			border-radius: 4px;
+			background-color: #f8f8f8;
+			color: #333;
+			font-size: 16px;
+		}
+		input[type="submit"] {
+			background-color: #008CBA;
+			color: #fff;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+		input[type="submit"]:hover {
+			background-color: #005F6B;
+		}
+		label {
+			color: #333;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.required {
+			color: red;
+		}
+		
+	</style>
+</head>
+<body>
+   
+	<h1>Adoption Application Form</h1>
+	<form method="POST" enctype="multipart/form-data">
+        
+        <label for="name">Name <span class="required">*</span></label>
+		<input type="text" id="name" name="name" placeholder="Enter your name..." required>
+
+		<label for="email">Email <span class="required">*</span></label>
+		<input type="email" id="email" name="email" placeholder="Enter your email..." required>
+
+		<label for="phone">Phone</label>
+		<input type="text" id="phone" name="phone" placeholder="Enter your phone number...">
+
+		<label for="address">Address <span class="required">*</span></label>
+		<textarea id="address" name="address" placeholder="Enter your address..." required></textarea>
+
+		
+
+		<label for="adoptiontype">Adoption Type <span class="required">*</span></label>
+        <select id="adoptiontype" name="adoptiontype" required>
+			<option value="">Select From Options Below...</option>
+			<option value="Passive">Passive</option>
+			<option value="Active">Active</option>
+		</select>
+        <button class="" type="submit" href="/">Submit</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+from flask import Flask, render_template, request
+import mysql.connector
+
+
+def sql_connector():
+    conn = mysql.connector.connect(user='root', password='Saisubbu@12345', db='test5', host='localhost')
+    c = conn.cursor()
+    return conn, c
+
+
+app = Flask(__name__)
+          
+        
+@app.route('/', methods=['GET','POST'])
+def home():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        phone = request.form.get('phone')
+        address = request.form.get('address')
+        # adoptiontype = request.form.get('adoptiontype')
+        adoptiontype= request.form.get('adoptiontype')
+        conn, c = sql_connector()
+        c.execute("INSERT INTO adopt VALUES ('{}','{}','{}','{}',{})".format(name,email,phone,address,adoptiontype))
+        conn.commit()
+        conn.close()
+        c.close()
+    return render_template('index2.html')
+                             
+
+if __name__ == '__main__':
+    app.run(debug=True)
